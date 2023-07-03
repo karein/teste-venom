@@ -98,6 +98,7 @@ function start(client) {
 /* ---------- */
 
 /* Metódo 4 */
+/* Teste feito no Windows com node v18.13.0 */
 /* funcionou 👍*/
 // venom
 //   .create({
@@ -108,3 +109,17 @@ function start(client) {
 //     console.error('Erro ao criar o cliente do bot:', error);
 //   });
 
+
+/* ---------- */
+
+/* Metódo 5 */
+/* funcionou 👍*/
+/* Teste feito no Linux com node v16.17.0 */
+venom.create({
+  session: 'sessionName',
+  headless: 'new',
+})
+  .then((client) => start(client))
+  .catch((error) => {
+    console.error('Erro ao criar o cliente do bot:', error);
+  });
