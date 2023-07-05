@@ -6,7 +6,7 @@ function start(client) {
 }
 
 /* Metódo 1 */
-/* Não funcionou 👎 */
+/* v^5.0.7 e v^5.0.11 - Não funcionou 👎 */
 // venom
 //   .create(
 //     'sessionName',
@@ -15,7 +15,10 @@ function start(client) {
 //     },
 //     (statusSession) => {
 //       console.log('statusSession', statusSession)
-//     }
+//     }, {
+//     headless: true
+//     // headless: 'new'
+//   }
 //   ).then((client) => {
 //     start(client);
 //   })
@@ -23,7 +26,8 @@ function start(client) {
 //     console.log(erro);
 //   });
 
-/* funcionou 👍*/
+/* v^5.0.7 - funcionou 👍*/
+/* v^5.0.11 - Não funcionou 👎 */
 // venom
 //   .create(
 //     { session: 'sessionName' },
@@ -32,19 +36,25 @@ function start(client) {
 //     },
 //     (statusSession) => {
 //       console.log('statusSession', statusSession)
+//     },
+//     {
+//       headless: true,
+//       puppeteerOptions: {
+//         ignoreDefaultArgs: ['--disable-extensions']
+//       },
 //     }
 //   ).then((client) => {
 //     start(client);
 //   })
 //   .catch((erro) => {
 //     console.log(erro);
-//   });
+// });
 
 
 /* ---------- */
 
 /* Metódo 2 */
-/* Não funcionou 👎 */
+/* v^5.0.7 e v^5.0.11 - Não funcionou 👎 */
 // venom
 //   .create('sessionName', undefined, (statusSession, session) => {
 //     console.log('Status Session: ', statusSession);
@@ -57,7 +67,8 @@ function start(client) {
 //     console.log(erro);
 //   });
 
-/* funcionou 👍*/
+/* v^5.0.7 - funcionou 👍*/
+/* v^5.0.11 - Não funcionou 👎 */
 // venom
 //   .create({ session: 'sessionName' }, undefined, (statusSession, session) => {
 //     console.log('Status Session: ', statusSession);
@@ -74,7 +85,7 @@ function start(client) {
 /* ---------- */
 
 /* Metódo 3 */
-/* Não funcionou 👎 */
+/* v^5.0.7 e ^5.0.11- Não funcionou 👎 */
 // venom
 //   .create('sessionName')
 //   .then((client) => {
@@ -84,7 +95,8 @@ function start(client) {
 //     console.log(erro);
 //   });
 
-/* funcionou 👍*/
+/* v^5.0.7 - funcionou 👍*/
+/* ^5.0.11- Não funcionou 👎 */
 // venom
 //   .create({ session: 'sessionName' })
 //   .then((client) => {
@@ -99,7 +111,8 @@ function start(client) {
 
 /* Metódo 4 */
 /* Teste feito no Windows com node v18.13.0 */
-/* funcionou 👍*/
+/* v^5.0.7 - funcionou 👍*/
+/* ^5.0.11- Não funcionou 👎 */
 // venom
 //   .create({
 //     session: 'sessionName',
@@ -113,7 +126,8 @@ function start(client) {
 /* ---------- */
 
 /* Metódo 5 */
-/* funcionou 👍*/
+/* v^5.0.7 - funcionou 👍*/
+/* ^5.0.11- Não funcionou 👎 */
 /* Teste feito no Linux com node v16.17.0 */
 venom.create({
   session: 'sessionName',
