@@ -1,8 +1,9 @@
 Funções simples para teste do Venom-bot
 
-### Versão utilizada
+### Versões utilizadas
 
 - ^5.0.7
+- ^5.0.11
 
 ### Rodar o projeto - comandos
 
