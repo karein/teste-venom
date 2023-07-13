@@ -92,6 +92,7 @@ exports.getWhatsappPage = getWhatsappPage;
 function folderSession(options) {
     const sessionName = options.session || '';
     const folderSession = path.join(path.resolve(process.cwd(), options.mkdirFolderToken, options.folderNameToken, sessionName));
+    
     if (!fs.existsSync(folderSession)) {
         fs.mkdirSync(folderSession, {
             recursive: true
