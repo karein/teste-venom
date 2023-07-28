@@ -40,7 +40,7 @@ const folderSession = path.join(
 )
 ```
 
-### 5.0.7
+### 5.0.7 & 5.0.11
 
 No arquivo **node_modules/venom-bot/dist/controllers/browser.js** na função **`initBrowser`**:
 
