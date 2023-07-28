@@ -16,7 +16,7 @@ Funções simples para teste do Venom-bot
 
 ### "Gambiarras" para cada versão
 
-Alterações que funcionaram para mim com whatsapp pessoal no window e linux.
+Alterações que funcionaram para mim (em relação ao erro `Error no open browser....`) usando whatsapp pessoal no window e linux.
 
 ### 5.0.6
 
@@ -59,4 +59,20 @@ const launchOptions = {
   ...options.puppeteerOptions,
   ...extras,
 }
+```
+
+### 5.0.13
+
+Work's fine with `headless: true` argument in `create` function
+
+```javascript
+venom
+  .create({
+    session: "sessionName",
+    headless: true,
+  })
+  .then(client => start(client))
+  .catch(error => {
+    console.error("Erro ao criar o cliente do bot:", error)
+  })
 ```

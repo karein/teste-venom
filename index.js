@@ -66,15 +66,15 @@ function start(client) {
     /* ^5.0.11 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
     // venom
     //   .create({session: 'sessionName'}
-    //     // ,null, null,
-    //     // {
+    //     ,null, null,
+    //     {
     //     //   waitForLogin: true,
-    //     //   headless: true
+    //       headless: true
     //     //   // ,browserArgs: ['--no-sandbox'],
     //     //   // puppeteerOptions: {
     //     //   //   ignoreDefaultArgs: ['--disable-extensions']
     //     //   // },
-    //     // }
+    //     }
     //   )
     //   .then((client) => {
     //     start(client);
@@ -88,19 +88,20 @@ function start(client) {
   /* Metódo 4 */
     /* ^5.0.7 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
     /* ^5.0.11 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    // venom
-    // .create({
-    //   session: 'sessionName',
-    //   // headless: true,
-    //   // waitForLogin: true,
-    //   // browserArgs: ['--no-sandbox'],
-    //   // puppeteerOptions: {
-    //   //   ignoreDefaultArgs: ['--disable-extensions']
-    //   // }
-    // }).then((client) => start(client))
-    // .catch((error) => {
-    //   console.error('Erro ao criar o cliente do bot:', error);
-    // });
+    /* ^5.0.13 - funcionou usando o headless: true 👍 */
+    venom
+    .create({
+      session: 'sessionName',
+      headless: true,
+      // waitForLogin: true,
+      // browserArgs: ['--no-sandbox'],
+      // puppeteerOptions: {
+      //   ignoreDefaultArgs: ['--disable-extensions']
+      // }
+    }).then((client) => start(client))
+    .catch((error) => {
+      console.error('Erro ao criar o cliente do bot:', error);
+    });
 
 /* no session argument */
 
@@ -116,14 +117,14 @@ function start(client) {
     //     (statusSession) => {
     //       console.log('statusSession', statusSession)
     //     } 
-    //     // ,{
+    //     ,{
     //     //   waitForLogin: true,
-    //     //   headless: true,
+    //       headless: true,
     //     //   browserArgs: ['--no-sandbox'],
     //     //   puppeteerOptions: {
     //     //     ignoreDefaultArgs: ['--disable-extensions']
-    //     //   },
-    //     // }
+    //       // },
+    //     }
     //   ).then((client) => {
     //     start(client);
     //   })
