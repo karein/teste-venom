@@ -40,7 +40,7 @@ const folderSession = path.join(
 )
 ```
 
-### 5.0.7 & 5.0.11
+### 5.0.7, 5.0.11 & 5.0.13
 
 No arquivo **node_modules/venom-bot/dist/controllers/browser.js** na função **`initBrowser`**:
 
@@ -64,6 +64,7 @@ const launchOptions = {
 ### 5.0.13
 
 Seems to work fine **only** with this specific function format 😕
+(with this format isn't necessary to change node modules function)
 
 ```javascript
 venom
