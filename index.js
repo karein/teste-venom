@@ -88,26 +88,27 @@ function start(client) {
   /* Metódo 4 */
     /* ^5.0.7 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
     /* ^5.0.11 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    /* ^5.0.13 - funcionou usando o headless: true 👍 */
-    venom
-    .create({
-      session: 'sessionName',
-      headless: true,
-      // waitForLogin: true,
-      // browserArgs: ['--no-sandbox'],
-      // puppeteerOptions: {
-      //   ignoreDefaultArgs: ['--disable-extensions']
-      // }
-    }).then((client) => start(client))
-    .catch((error) => {
-      console.error('Erro ao criar o cliente do bot:', error);
-    });
+    /* ^5.0.13 - funcionou com a pasta tokens e usando o headless: true 👍 */
+    // venom
+    // .create({
+    //   session: 'sessionName',
+    //   headless: true,
+    //   // waitForLogin: true,
+    //   // browserArgs: ['--no-sandbox'],
+    //   // puppeteerOptions: {
+    //   //   ignoreDefaultArgs: ['--disable-extensions']
+    //   // }
+    // }).then((client) => start(client))
+    // .catch((error) => {
+    //   console.error('Erro ao criar o cliente do bot:', error);
+    // });
 
 /* no session argument */
 
   /* Metódo 1 */
-    /* ^5.0.7 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    /* ^5.0.11 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
+    /* ^5.0.7 - Não funcionou com a pasta tokens não vazia 👎 */
+    /* ^5.0.11 - Não funcionou com a pasta tokens não vazia 👎 */
+    /* ^5.0.13 - Não funcionou com a pasta tokens não vazia 👎 */
     // venom
     //   .create(
     //     'sessionName',

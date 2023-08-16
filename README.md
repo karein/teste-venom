@@ -1,4 +1,4 @@
-Funções simples para teste do Venom-bot
+Funções simples para teste do Venom-bot.
 
 ## Versões utilizadas
 
@@ -16,7 +16,7 @@ Funções simples para teste do Venom-bot
 
 ### "Gambiarras" para cada versão
 
-Alterações que funcionaram para mim (em relação ao erro `Error no open browser....`) usando whatsapp pessoal no window e linux.
+Alterações que funcionaram para mim (em relação ao erro `Error no open browser....`) usando whatsapp pessoal no <u>**linux**</u> e <u>**window**</u>.
 
 ### 5.0.6
 
@@ -63,7 +63,7 @@ const launchOptions = {
 
 ### 5.0.13
 
-Work's fine with `headless: true` argument in `create` function
+Seems to work fine **only** with this specific function format 😕
 
 ```javascript
 venom
