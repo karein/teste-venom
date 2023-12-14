@@ -1,23 +1,44 @@
-import { create, Whatsapp } from 'venom-bot';
+import { create } from 'venom-bot';
 
-create({ session: 'teste-session' })
-  .then((client) => start(client))
-  .catch((erro) => {
-    console.log(erro);
-  });
+export class InitVenomClient {
+  #sessionName;
+  #client;
 
+  constructor(sessionName) {
+    this.#sessionName = sessionName
+  }
 
-function start(client) {
-  client.onMessage((message) => {
-    if (message.body === 'Hi' && message.isGroupMsg === false) {
-      client
-        .sendText(message.from, 'Welcome Venom 🕷')
-        .then((result) => {
-          console.log('Result: ', result); //return object success
-        })
-        .catch((erro) => {
-          console.error('Error when sending: ', erro); //return object error
-        });
-    }
-  });
+  init() {
+    create({ session: this.#sessionName })
+      .then((client) => {
+        this.#client = client
+        this.start(client)
+      })
+      .catch((erro) => {
+        console.log(erro);
+      });
+  }
+
+  start(client) {
+    client.onMessage((message) => {
+      if (message.body === 'Hi' && !message.isGroupMsg) {
+        client
+          .sendText(message.from, 'Welcome Venom 🕷')
+          .then((result) => {
+            // console.log('Result: ', result); //return object success
+            return 'success'
+          })
+          .catch((erro) => {
+            console.error('Error when sending: ', erro); //return object error
+            return erro
+          });
+      }
+    });
+  }
 }
+
+
+const sessionName = 'test-session';
+const initVenomClient = new InitVenomClient(sessionName);
+initVenomClient.init();
+
