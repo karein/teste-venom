@@ -14,9 +14,19 @@ Funções simples para teste do Venom-bot.
 
 - npm i venom-bot@\<version\>
 
-### "Gambiarras" para cada versão
+## Referências
 
-Alterações que funcionaram para mim (em relação ao erro `Error no open browser....`) usando whatsapp pessoal no <u>**linux**</u> e <u>**window**</u>.
+- [Building a REST API with Node and Express
+  ](https://stackabuse.com/building-a-rest-api-with-node-and-express/)
+- [How to create a REST API with Node.js and Express](https://blog.postman.com/how-to-create-a-rest-api-with-node-js-and-express/)
+- [Criando um WhatsApp Bot para o Woodstock de 1969 ☮️ — NodeJS](https://giovanicassiano.medium.com/criando-um-whatsapp-bot-para-o-woodstock-de-1969-%EF%B8%8F-nodejs-64318d67f5cd)
+  - Repository: https://github.com/giovaninogueira/chat-bot-aula/tree/main
+    <br></br>
+
+## Modificações
+
+"Gambiarras" para cada versão.  
+Alterações que funcionaram para mim (em relação ao erro `Error no open browser....`) usando WhatsApp pessoal no <u>**Linux**</u> e <u>**Windows**</u>.
 
 ### 5.0.6
 
@@ -63,7 +73,7 @@ const launchOptions = {
 
 ### 5.0.13
 
-Seems to work fine **only** with this specific function format 😕
+Seems to work fine **only** with this specific function format 😕  
 (with this format isn't necessary to change node modules function)
 
 ```javascript

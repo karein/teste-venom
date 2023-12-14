@@ -1,197 +1,23 @@
-const venom = require('venom-bot');
+import { create, Whatsapp } from 'venom-bot';
+
+create({ session: 'teste-session' })
+  .then((client) => start(client))
+  .catch((erro) => {
+    console.log(erro);
+  });
+
 
 function start(client) {
-  console.log('### client Ok')
+  client.onMessage((message) => {
+    if (message.body === 'Hi' && message.isGroupMsg === false) {
+      client
+        .sendText(message.from, 'Welcome Venom 🕷')
+        .then((result) => {
+          console.log('Result: ', result); //return object success
+        })
+        .catch((erro) => {
+          console.error('Error when sending: ', erro); //return object error
+        });
+    }
+  });
 }
-
-/* session argument */
-
-  /* Metódo 1 */
-    /* ^5.0.7 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    /* ^5.0.11 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    // venom
-    //   .create(
-    //     { session: 'sessionName' },
-    //     (base64Qr) => {
-    //       console.log('base64Qr', base64Qr)
-    //     },
-    //     (statusSession) => {
-    //       console.log('statusSession', statusSession)
-    //     } 
-    //     // ,{
-    //     //   waitForLogin: true,
-    //     //   headless: true,
-    //     //   browserArgs: ['--no-sandbox']
-    //     //   // ,puppeteerOptions: {
-    //     //   //   ignoreDefaultArgs: ['--disable-extensions']
-    //     //   // },
-    //     // }
-    //   ).then((client) => {
-    //     start(client);
-    //   })
-    //   .catch((erro) => {
-    //     console.log(erro);
-    //   });
-
-  /* ---------- */
-
-  /* Metódo 2 */
-    /* ^5.0.7 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    /* ^5.0.11 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    // venom
-    // .create({session: 'sessionName'}, undefined, (statusSession, session) => {
-    //     console.log('Status Session: ', statusSession);
-    //     console.log('Session name: ', session);
-    //   }
-    //   // ,{
-    //   //   waitForLogin: true,
-    //   //   headless: true,
-    //   //   // browserArgs: ['--no-sandbox'],
-    //   //   // puppeteerOptions: {
-    //   //   //   ignoreDefaultArgs: ['--disable-extensions']
-    //   //   // },
-    //   // }
-    // )
-    // .then((client) => {
-    //   start(client);
-    // })
-    // .catch((erro) => {
-    //   console.log(erro);
-    // });
-
-  /* ---------- */
-
-  /* Metódo 3 */
-    /* ^5.0.7 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    /* ^5.0.11 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    // venom
-    //   .create({session: 'sessionName'}
-    //     ,null, null,
-    //     {
-    //     //   waitForLogin: true,
-    //       headless: true
-    //     //   // ,browserArgs: ['--no-sandbox'],
-    //     //   // puppeteerOptions: {
-    //     //   //   ignoreDefaultArgs: ['--disable-extensions']
-    //     //   // },
-    //     }
-    //   )
-    //   .then((client) => {
-    //     start(client);
-    //   })
-    //   .catch((erro) => {
-    //     console.log(erro);
-    //   });
-
-  /* ---------- */
-
-  /* Metódo 4 */
-    /* ^5.0.7 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    /* ^5.0.11 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    /* ^5.0.13 - funcionou com a pasta tokens e usando o headless: true 👍 */
-    // venom
-    // .create({
-    //   session: 'sessionName',
-    //   headless: true,
-    //   // waitForLogin: true,
-    //   // browserArgs: ['--no-sandbox'],
-    //   // puppeteerOptions: {
-    //   //   ignoreDefaultArgs: ['--disable-extensions']
-    //   // }
-    // }).then((client) => start(client))
-    // .catch((error) => {
-    //   console.error('Erro ao criar o cliente do bot:', error);
-    // });
-
-/* no session argument */
-
-  /* Metódo 1 */
-    /* ^5.0.7 - Não funcionou com a pasta tokens não vazia 👎 */
-    /* ^5.0.11 - Não funcionou com a pasta tokens não vazia 👎 */
-    /* ^5.0.13 - Não funcionou com a pasta tokens não vazia 👎 */
-    // venom
-    //   .create(
-    //     'sessionName',
-    //     (base64Qr) => {
-    //       console.log('base64Qr', base64Qr)
-    //     },
-    //     (statusSession) => {
-    //       console.log('statusSession', statusSession)
-    //     } 
-    //     ,{
-    //     //   waitForLogin: true,
-    //       headless: true,
-    //     //   browserArgs: ['--no-sandbox'],
-    //     //   puppeteerOptions: {
-    //     //     ignoreDefaultArgs: ['--disable-extensions']
-    //       // },
-    //     }
-    //   ).then((client) => {
-    //     start(client);
-    //   })
-    //   .catch((erro) => {
-    //     console.log(erro);
-    //   });
-
-  /* ---------- */
-
-  /* Metódo 2 */
-    /* ^5.0.7 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    /* ^5.0.11- Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    // venom
-    //   .create( 'sessionName', undefined, (statusSession, session) => {
-    //       console.log('Status Session: ', statusSession);
-    //       console.log('Session name: ', session);
-    //     }
-    //     // ,{
-    //     //   waitForLogin: true,
-    //     //   headless: true,
-    //     //   // browserArgs: ['--no-sandbox'],
-    //     //   // puppeteerOptions: {
-    //     //   //   ignoreDefaultArgs: ['--disable-extensions']
-    //     //   // },
-    //     // }
-    //   )
-    //   .then((client) => {
-    //     start(client);
-    //   })
-    //   .catch((erro) => {
-    //     console.log(erro);
-    //   });
-
-  /* ---------- */
-
-  /* Metódo 3 */
-    /* ^5.0.7 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    /* ^5.0.11 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    // venom
-    //   .create('sessionName'
-    //     // ,null, null,
-    //     // {
-    //     //   waitForLogin: true,
-    //     //   headless: true,
-    //     //   // browserArgs: ['--no-sandbox'],
-    //     //   // puppeteerOptions: {
-    //     //   //   ignoreDefaultArgs: ['--disable-extensions']
-    //     //   // },
-    //     // }
-    //   )
-    //   .then((client) => {
-    //     start(client);
-    //   })
-    //   .catch((erro) => {
-    //     console.log(erro);
-    //   });
-
-  /* ---------- */
-
-  /* Metódo 4 */
-    /* ^5.0.7 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    /* ^5.0.11 - Não funcionou com a pasta tokens 👎 - funcionou sem a pasta tokens 👍 */
-    // venom
-    //   .create('sessionName').then((client) => start(client))
-    //   .catch((error) => {
-    //     console.error('Erro ao criar o cliente do bot:', error);
-    //   });
-
-
