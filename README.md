@@ -1,14 +1,17 @@
-Funções simples para teste do Venom-bot.
+Repositório com funções básicas do Venom-bot.  
+Projeto pode ser clonado e implementado para testar funções do seu interesse 👍.
 
 ## Versões utilizadas
 
 - ^5.0.7
 - ^5.0.11
+- ^5.0.13
+- ^5.0.21
 
 ## Rodar o projeto - comandos
 
 1. npm install
-2. node index.js
+2. npm run dev
 
 ## instalar versão específica a lib
 
@@ -16,6 +19,7 @@ Funções simples para teste do Venom-bot.
 
 ## Referências
 
+- [Venom-bot](https://github.com/orkestral/venom)
 - [Building a REST API with Node and Express
   ](https://stackabuse.com/building-a-rest-api-with-node-and-express/)
 - [How to create a REST API with Node.js and Express](https://blog.postman.com/how-to-create-a-rest-api-with-node-js-and-express/)
@@ -50,6 +54,8 @@ const folderSession = path.join(
 )
 ```
 
+<br></br>
+
 ### 5.0.7, 5.0.11 & 5.0.13
 
 No arquivo **node_modules/venom-bot/dist/controllers/browser.js** na função **`initBrowser`**:
@@ -71,6 +77,8 @@ const launchOptions = {
 }
 ```
 
+<br></br>
+
 ### 5.0.13
 
 Seems to work fine **only** with this specific function format 😕  
@@ -86,4 +94,55 @@ venom
   .catch(error => {
     console.error("Erro ao criar o cliente do bot:", error)
   })
+```
+
+<br></br>
+
+### 5.0.21
+
+SendImage retornando erro:
+
+```javascript
+  erro {
+    me: {
+      [...]
+    },
+    to: {
+      [...]
+    },
+    erro: true,
+    text: 'Error to processFiles',
+    status: 404
+  }
+```
+
+Issues references:
+
+- https://github.com/orkestral/venom/issues/2482#issuecomment-1732781741
+- https://github.com/orkestral/venom/issues/2485
+
+No arquivo **node_modules/venom-bot/dist/lib/wapi/wapi.js** alterar:
+
+```javascript
+/* <!-- Before --> */
+return (
+  await n.processAttachments(
+    "0.4.613" === Debug.VERSION ? t : t.map(e => ({ file: e })),
+    e,
+    1
+  ),
+  n
+)
+```
+
+```javascript
+/*<!-- After -->*/
+return (
+  await n.processAttachments(
+    "0.4.613" === Debug.VERSION ? t : t.map(e => ({ file: e })),
+    e,
+    e
+  ),
+  n
+)
 ```

@@ -8,7 +8,7 @@ export class InitVenomClient {
     this.#sessionName = sessionName
   }
 
-  init() {
+  async init() {
     create({ session: this.#sessionName })
       .then((client) => {
         this.#client = client
@@ -20,15 +20,17 @@ export class InitVenomClient {
   }
 
   chooseFnc(message) {
+    const fnc = message.body;
     const from = message.from;
 
     const functions = {
       text: () => this.sendText(from),
+      image: () => this.sendImage(from),
       buttons: () => this.sendButtons(from),
       default: 'Invalid Option!'
     }
 
-    return functions[message.body] ? functions[message.body]() : functions.default;
+    return functions[fnc] ? functions[fnc]() : functions.default;
   }
 
 
@@ -36,18 +38,19 @@ export class InitVenomClient {
     client.onMessage(async (message) => {
       try {
         if (!message.isGroupMsg) {
-          const response = await this.chooseFnc(message)
-          console.log('response', response)
+          await this.chooseFnc(message)
         }
       } catch (error) {
-        return error
+        throw error
       }
     });
   }
 
-  async sendText(from) {
+  async sendText(to, text) {
+    const message = text || '👋 Hello from venom! This is a basic text exemple.';
+
     const response = await this.#client
-      .sendText(from, '👋 Hello from venom! This is a basic text exemple.')
+      .sendText(to, message)
       .then(() => {
         return 'success'
       })
@@ -58,7 +61,7 @@ export class InitVenomClient {
     return response;
   }
 
-  async sendButtons(from) {
+  async sendButtons(to) {
     const buttons = [
       {
         "buttonText": {
@@ -72,7 +75,7 @@ export class InitVenomClient {
       }
     ]
     const response = await this.#client
-      .sendButtons(from, 'Title: Buttons example', buttons, 'Description: This is a basic buttons exemple.')
+      .sendButtons(to, 'Title: Buttons example', buttons, 'Description: This is a basic buttons exemple.')
       .then(() => 'success')
       .catch((erro) => {
         throw erro
@@ -81,10 +84,32 @@ export class InitVenomClient {
     return response;
 
   }
+
+  async sendImage(to, image, imageName, captionText) {
+    const img = image || './assets/sad_christmas_tree.jpg';
+    const imgName = imageName || 'Image name';
+    const captionTxt = captionText || 'Caption text';
+
+    const response = await this.#client
+      .sendImage(
+        to,
+        img,
+        imgName,
+        captionTxt
+      )
+      .then(() => 'success')
+      .catch((erro) => {
+        console.log('erro', erro)
+        throw erro
+      });
+
+    return response
+  }
+
 }
 
 
 const sessionName = 'test-session';
 const initVenomClient = new InitVenomClient(sessionName);
-initVenomClient.init();
+await initVenomClient.init();
 
