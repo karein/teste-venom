@@ -33,7 +33,10 @@ export class InitVenomClient {
     return functions[fnc] ? functions[fnc]() : functions.default;
   }
 
-
+  /*
+    Recebe uma mensagem e retorna a função equivalente.
+    Ex: Escuta a mensagem 'text' e chama a função 'sendText', que envia um texto simples.
+  */
   start(client) {
     client.onMessage(async (message) => {
       try {

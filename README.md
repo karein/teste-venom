@@ -118,7 +118,7 @@ SendImage retornando erro:
 
 Issues references:
 
-- https://github.com/orkestral/venom/issues/2482#issuecomment-1732781741
+- https://github.com/orkestral/venom/issues/2482
 - https://github.com/orkestral/venom/issues/2485
 
 No arquivo **node_modules/venom-bot/dist/lib/wapi/wapi.js** alterar:
@@ -129,7 +129,7 @@ return (
   await n.processAttachments(
     "0.4.613" === Debug.VERSION ? t : t.map(e => ({ file: e })),
     e,
-    1
+    1 // antes
   ),
   n
 )
@@ -141,7 +141,7 @@ return (
   await n.processAttachments(
     "0.4.613" === Debug.VERSION ? t : t.map(e => ({ file: e })),
     e,
-    e
+    e // depois
   ),
   n
 )
