@@ -64,8 +64,8 @@ export class InitVenomClient {
     return response;
   }
 
-  async sendButtons(to) {
-    const buttons = [
+  async sendButtons(to, buttons) {
+    const buttonsArr = buttons || [
       {
         "buttonText": {
           "displayText": "Text of Button 1"
@@ -76,9 +76,10 @@ export class InitVenomClient {
           "displayText": "Text of Button 2"
         }
       }
-    ]
+    ];
+
     const response = await this.#client
-      .sendButtons(to, 'Title: Buttons example', buttons, 'Description: This is a basic buttons exemple.')
+      .sendButtons(to, 'Title: Buttons example', buttonsArr, 'Description: This is a basic buttons exemple.')
       .then(() => 'success')
       .catch((erro) => {
         throw erro
@@ -108,11 +109,4 @@ export class InitVenomClient {
 
     return response
   }
-
 }
-
-
-const sessionName = 'test-session';
-const initVenomClient = new InitVenomClient(sessionName);
-await initVenomClient.init();
-

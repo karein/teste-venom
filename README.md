@@ -30,10 +30,11 @@ Projeto pode ser clonado e implementado para testar funções do seu interesse �
 ## Modificações
 
 "Gambiarras" para cada versão.  
-Alterações que funcionaram para mim (em relação ao erro `Error no open browser....`) usando WhatsApp pessoal no <u>**Linux**</u> e <u>**Windows**</u>.
+Alterações que funcionaram para mim usando WhatsApp pessoal no <u>**Linux**</u> e <u>**Windows**</u>.
 
 ### 5.0.6
 
+Erro: `Error no open browser....`  
 No arquivo **node_modules/venom-bot/dist/controllers/browser.js** na função **`folderSession`**:
 
 ```javascript
@@ -54,10 +55,11 @@ const folderSession = path.join(
 )
 ```
 
-<br></br>
+<br/>
 
 ### 5.0.7, 5.0.11 & 5.0.13
 
+Erro: `Error no open browser....`  
 No arquivo **node_modules/venom-bot/dist/controllers/browser.js** na função **`initBrowser`**:
 
 ```javascript
@@ -77,12 +79,12 @@ const launchOptions = {
 }
 ```
 
-<br></br>
+<br/>
 
 ### 5.0.13
 
-Seems to work fine **only** with this specific function format 😕  
-(with this format isn't necessary to change node modules function)
+Erro: `Error no open browser....`  
+Using this format isn't necessary to change node_modules function.
 
 ```javascript
 venom
