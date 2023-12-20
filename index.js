@@ -64,6 +64,7 @@ export class InitVenomClient {
     return response;
   }
 
+  /* Visíveis apenas em apenas WhatsApp web e IOS */
   async sendButtons(to, buttons) {
     const buttonsArr = buttons || [
       {
@@ -89,6 +90,7 @@ export class InitVenomClient {
 
   }
 
+  /* Necessário alteração no node_modules (V<=^5.0.21) */
   async sendImage(to, image, imageName, captionText) {
     const img = image || './assets/sad_christmas_tree.jpg';
     const imgName = imageName || 'Image name';

@@ -17,8 +17,8 @@ app.get('/', (_, res) => {
   res.send('Hello World!')
 })
 
-app.get('/send-text', async (req, res) => {
-  const { to, text } = req.query
+app.post('/send-text', async (req, res) => {
+  const { to, text } = req.body
   const response = await initVenomClient.sendText(to, text);
   res.send(response)
 })
@@ -29,8 +29,8 @@ app.post('/send-buttons', async (req, res) => {
   res.send(response)
 })
 
-app.get('/send-image', async (req, res) => {
-  const { to, imageRoute, imageName, captionText } = req.query;
+app.post('/send-image', async (req, res) => {
+  const { to, imageRoute, imageName, captionText } = req.body;
   const response = await initVenomClient.sendImage(to, imageRoute, imageName, captionText)
   res.send(response)
 })

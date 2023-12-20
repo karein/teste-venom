@@ -148,3 +148,16 @@ return (
   n
 )
 ```
+
+<br/>
+
+---
+
+Visibilidade dos Botões e Listas:  
+Aparentemente e infelizmente, não se consegue visualizar os botões em aparelhos Android, apenas no WhatsApp web (e talvez no IOS).  
+OBS: Não tenho IOS para confirmar a informação.
+
+Issues references:
+
+- https://github.com/orkestral/venom/issues/2418
+- https://github.com/orkestral/venom/issues/1826
