@@ -10,10 +10,10 @@ Projeto pode ser clonado e implementado para testar funções do seu interesse �
 
 ## Rodar o projeto - comandos
 
-1. npm install
-2. npm run dev
+1. `npm install`
+2. `npm run dev`
 
-## instalar versão específica a lib
+## instalar versão específica da lib
 
 - npm i venom-bot@\<version\>
 
