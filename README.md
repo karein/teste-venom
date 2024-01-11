@@ -1,5 +1,29 @@
 Repositório com funções básicas do Venom-bot.  
-Projeto pode ser clonado e implementado para testar funções do seu interesse 👍.
+Projeto pode ser clonado e implementado com funções do seu interesse 👍.
+
+Arquivo **index** utiliza `classes`.  
+**Server** e **rotas** criados com `express`.
+
+## Rodar o projeto - comandos
+
+1. `npm install`
+2. `npm run dev`
+
+### Forma de usar
+
+1. Ler o QR code quando aparecer no terminal
+2. Fazer a chamada das funções (duas formas):  
+    2.1 Enviar uma mensagem referente a função desejada para o número conectado ao venom
+
+   - mensagens aceitas [text, image, buttons]
+
+   2.2 Fazer requisição para o endpoint referente a função desejada, passando os devidos parâmetros
+
+   - Exemplo endpoint: `localhost/send-text`
+
+## instalar versão específica da lib
+
+- npm i venom-bot@\<version\>
 
 ## Versões utilizadas
 
@@ -7,15 +31,6 @@ Projeto pode ser clonado e implementado para testar funções do seu interesse �
 - ^5.0.11
 - ^5.0.13
 - ^5.0.21
-
-## Rodar o projeto - comandos
-
-1. `npm install`
-2. `npm run dev`
-
-## instalar versão específica da lib
-
-- npm i venom-bot@\<version\>
 
 ## Referências
 
@@ -84,7 +99,7 @@ const launchOptions = {
 ### 5.0.13
 
 Erro: `Error no open browser....`  
-Using this format isn't necessary to change node_modules function.
+Usando nesse formato não é necessário alterar funções do node_modules.
 
 ```javascript
 venom
@@ -102,7 +117,7 @@ venom
 
 ### 5.0.21
 
-SendImage retornando erro:
+<u>_FUNÇÃO SENDIMAGE RETORNANDO ERRO_</u>:
 
 ```javascript
   erro {
@@ -153,7 +168,7 @@ return (
 
 ---
 
-Visibilidade dos Botões e Listas:  
+<u>_VISIBILIDADE DOS BOTÕES E LISTAS_</u>:  
 Aparentemente e infelizmente, não se consegue visualizar os botões em aparelhos Android, apenas no WhatsApp web (e talvez no IOS).  
 OBS: Não tenho IOS para confirmar a informação.
 
