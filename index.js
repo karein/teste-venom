@@ -112,3 +112,188 @@ export class InitVenomClient {
     return response
   }
 }
+
+
+/*
+
+  // Versão - ^5.0.7 
+  const venom = require('venom-bot');
+
+  function start(client) {
+    console.log('### client Ok')
+  }
+
+  // Metódo 1 
+  // Não funcionou 👎 
+  // venom
+  //   .create(
+  //     'sessionName',
+  //     (base64Qr) => {
+  //       console.log('base64Qr', base64Qr)
+  //     },
+  //     (statusSession) => {
+  //       console.log('statusSession', statusSession)
+  //     }
+  //   ).then((client) => {
+  //     start(client);
+  //   })
+  //   .catch((erro) => {
+  //     console.log(erro);
+  //   });
+
+  // funcionou 👍
+  // venom
+  //   .create(
+  //     { session: 'sessionName' },
+  //     (base64Qr) => {
+  //       console.log('base64Qr')
+  //     },
+  //     (statusSession) => {
+  //       console.log('statusSession', statusSession)
+  //     }
+  //   ).then((client) => {
+  //     start(client);
+  //   })
+  //   .catch((erro) => {
+  //     console.log(erro);
+  //   });
+
+
+  // ---------- 
+
+  // Metódo 2 
+  // Não funcionou 👎
+  // venom
+  //   .create('sessionName', undefined, (statusSession, session) => {
+  //     console.log('Status Session: ', statusSession);
+  //     console.log('Session name: ', session);
+  //   })
+  //   .then((client) => {
+  //     start(client);
+  //   })
+  //   .catch((erro) => {
+  //     console.log(erro);
+  //   });
+
+  // funcionou 👍
+  // venom
+  //   .create({ session: 'sessionName' }, undefined, (statusSession, session) => {
+  //     console.log('Status Session: ', statusSession);
+  //     console.log('Session name: ', session);
+  //   })
+  //   .then((client) => {
+  //     start(client);
+  //   })
+  //   .catch((erro) => {
+  //     console.log(erro);
+  //   });
+
+
+  // ---------- 
+  // Metódo 3 
+  // Não funcionou 👎 
+  // venom
+  //   .create('sessionName')
+  //   .then((client) => {
+  //     start(client);
+  //   })
+  //   .catch((erro) => {
+  //     console.log(erro);
+  //   });
+
+  // funcionou 👍
+  // venom
+  //   .create({ session: 'sessionName' })
+  //   .then((client) => {
+  //     start(client);
+  //   })
+  //   .catch((erro) => {
+  //     console.log(erro);
+  //   });
+
+
+  // ---------- 
+
+  // Metódo 4 
+  // funcionou 👍
+  // venom
+  //   .create({
+  //     session: 'sessionName',
+  //     headless: true,
+  //   }).then((client) => start(client))
+  //   .catch((error) => {
+  //     console.error('Erro ao criar o cliente do bot:', error);
+  //   });
+
+  // ---------- 
+
+  // Metódo 5 
+
+  // (async () => {
+  //   try {
+  //     await venom.create(
+  //       'sessionName',
+  //       (base64Qr, _, attempts) => {
+  //         console.log('attempts', attempts)
+  //       },
+  //       (statusSession) => {
+  //         console.log('statusSession', statusSession);
+  //       }, {
+  //       folderNameToken: 'tokens',
+  //       disableWelcome: true,
+  //       waitForLogin: true,
+  //       disableSpins: true,
+  //       refreshQR: 15000,
+  //       autoClose: 45000,
+  //     }
+  //     )
+  //   } catch (error) {
+  //     console.log("LOG:ERROR-[Initialize]", error)
+  //   }
+  // })();
+
+
+  async function init(sessionName) {
+    console.log('#### sessionName', sessionName)
+
+    const browserSessionToken = null;
+
+    try {
+      const client = await venom.create(
+        sessionName,
+        // { session: sessionName },
+        (base64Qr, asciiQR, attempts, urlCode) => {
+          console.log('\n', '...QR CODE ...', attempts, urlCode, '\n')
+          this.socket && this.socket.emit('qrCodeServer', { qrBase64: base64Qr, attempts: attempts })
+
+          const attemptes = attempts;
+          const qrcode = base64Qr;
+          const state = "QRCODE";
+        },
+        // statusFind
+        (statusSession, sess) => {
+          const status = statusSession;
+          console.log('#### status=' + statusSession + ' sessionName=' + sess);
+          // const state = state != 'CONNECTED' ? statusSession : state;
+        }, {
+        folderNameToken: 'tokens',
+        disableWelcome: true,
+        waitForLogin: true,
+        disableSpins: true,
+        refreshQR: 15000,
+        autoClose: 45000,
+      },
+        browserSessionToken
+      )
+
+      return client;
+    } catch (error) {
+      console.log("LOG:ERROR-[Initialize]", error)
+      return error
+    }
+  }
+
+  (async () => {
+    await init('nome-da-sessao');
+  })();
+*/
